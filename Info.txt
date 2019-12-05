@@ -1,0 +1,5 @@
+vim-nohlslash
+
+Invoke search (`/`) and automatically :nohlsearch after executing it. There's
+no autocmd for "after search", though, so the current method isn't going to
+work.
