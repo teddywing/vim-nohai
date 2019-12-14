@@ -1,13 +1,5 @@
-function! s:Nohai(cmdwin_char)
-	if a:cmdwin_char == '/' || a:cmdwin_char == '?'
-		call s:AddMapping(a:cmdwin_char)
-	endif
-endfunction
-
-function! s:AddMapping(cmdwin_char)
-	if a:cmdwin_char == '/' || a:cmdwin_char == '?'
-		silent! cnoremap <expr> <CR> <SID>CR()
-	endif
+function! s:AddMapping()
+	silent! cnoremap <expr> <CR> <SID>CR()
 endfunction
 
 function! s:RemoveMapping()
@@ -27,7 +19,7 @@ function! s:AutocmdOn()
 	augroup nohai
 		autocmd!
 
-		autocmd CmdlineEnter [/\?] call s:Nohai(expand('<afile>'))
+		autocmd CmdlineEnter [/\?] call s:AddMapping()
 		autocmd CmdlineLeave [/\?] call s:Deactivate()
 	augroup END
 endfunction
