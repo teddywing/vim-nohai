@@ -64,7 +64,7 @@ function! s:AutocmdOn()
 	augroup nohai
 		autocmd!
 
-		autocmd CmdlineEnter [/?] call s:Nohai(expand('<afile>'))
+		autocmd CmdlineEnter [/\?] call s:Nohai(expand('<afile>'))
 	augroup END
 endfunction
 
