@@ -1,0 +1,10 @@
+g:nohai_no_maps	nohai.txt	/*g:nohai_no_maps*
+nohai-<Plug>(nohai-search)	nohai.txt	/*nohai-<Plug>(nohai-search)*
+nohai-<Plug>(nohai-search-backward)	nohai.txt	/*nohai-<Plug>(nohai-search-backward)*
+nohai-g/	nohai.txt	/*nohai-g\/*
+nohai-g?	nohai.txt	/*nohai-g?*
+nohai-introduction	nohai.txt	/*nohai-introduction*
+nohai-license	nohai.txt	/*nohai-license*
+nohai-mappings	nohai.txt	/*nohai-mappings*
+nohai-settings	nohai.txt	/*nohai-settings*
+nohai.txt	nohai.txt	/*nohai.txt*

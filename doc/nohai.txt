@@ -1,0 +1,53 @@
+*nohai.txt*	Search commands that |nohlsearch|
+
+Author:  Teddy Wing <http://teddywing.com>
+License: GPLv3+
+Version: 0.0.1
+
+==============================================================================
+INTRODUCTION                                              *nohai-introduction*
+
+Nohai wraps Vim's search commands, turning off search highlighting
+automatically after searching. This allows for movement using the search
+commands with visual feedback, while subsequently removing that feedback when
+it's no longer needed.
+
+==============================================================================
+MAPPINGS                                                      *nohai-mappings*
+
+Custom mappings can be defined using the included |<Plug>| mappings: >
+	nmap <Leader>/ <Plug>(nohai-search)
+<
+
+							*nohai-g/* *nohai-<Plug>(nohai-search-backward)*
+g/			Search forward and |nohlsearch| after searching.
+
+							*nohai-g?* *nohai-<Plug>(nohai-search)*
+g?			Search backward and |nohlsearch| after searching.
+
+==============================================================================
+SETTINGS                                                      *nohai-settings*
+
+							*g:nohai_no_maps*
+g:nohai_no_maps
+	Disable plugin mappings.
+
+==============================================================================
+LICENSE                                                        *nohai-license*
+
+Copyright (c) 2019 Teddy Wing
+
+Nohai is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Nohai is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Nohai. If not, see <https://www.gnu.org/licenses/>.
+
+ vim:tw=78:ts=8:ft=help:norl:
