@@ -17,7 +17,7 @@ function! s:Nohai(cmdwin_char)
 	" 	call s:RemoveMapping()
 	endif
 
-	call s:AutocmdOff()
+	" call s:AutocmdOff()
 endfunction
 
 function! s:AddMapping(cmdwin_char)
@@ -33,6 +33,11 @@ endfunction
 
 function! s:RemoveMapping()
 	silent! cunmap <CR>
+endfunction
+
+function! s:Deactivate()
+	call s:RemoveMapping()
+	call s:AutocmdOff()
 endfunction
 
 " function! s:CR(cmdwin_char)
@@ -54,7 +59,7 @@ function! s:CR()
 	" return expr
 
 	" TODO: Use CmdlineLeave instead for e.g. <C-c>
-	call s:RemoveMapping()
+	" call s:RemoveMapping()
 
 	return "\<CR>:nohlsearch\<CR>"
 endfunction
@@ -65,6 +70,7 @@ function! s:AutocmdOn()
 		autocmd!
 
 		autocmd CmdlineEnter [/\?] call s:Nohai(expand('<afile>'))
+		autocmd CmdlineLeave [/\?] call s:Deactivate()
 	augroup END
 endfunction
 
