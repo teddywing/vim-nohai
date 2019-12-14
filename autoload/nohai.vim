@@ -1,6 +1,6 @@
 " Remaps <CR> in command mode to run `nohlsearch` after accepting the command.
 function! s:AddMapping()
-	silent! cnoremap <expr> <CR> <SID>CRAndNohlsearch()
+	cnoremap <expr> <silent> <CR> <SID>CRAndNohlsearch()
 endfunction
 
 " Removes the Nohai <CR> cmap.
