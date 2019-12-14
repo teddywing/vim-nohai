@@ -1,5 +1,5 @@
 function! s:AddMapping()
-	silent! cnoremap <expr> <CR> <SID>CR()
+	silent! cnoremap <expr> <CR> <SID>CRAndNohlsearch()
 endfunction
 
 function! s:RemoveMapping()
@@ -11,7 +11,7 @@ function! s:Deactivate()
 	call s:AutocmdOff()
 endfunction
 
-function! s:CR()
+function! s:CRAndNohlsearch()
 	return "\<CR>:nohlsearch\<CR>"
 endfunction
 
