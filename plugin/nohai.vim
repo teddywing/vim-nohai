@@ -23,6 +23,9 @@ let g:loaded_nohai = 1
 nnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
 nnoremap <expr> <Plug>(nohai-search) nohai#Search('/')
 
+xnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
+xnoremap <expr> <Plug>(nohai-search) nohai#Search('/')
+
 onoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
 onoremap <expr> <Plug>(nohai-search) nohai#Search('/')
 
@@ -30,12 +33,14 @@ if exists('g:nohai_no_maps') && g:nohai_no_maps
 	finish
 endif
 
-if !hasmapto('<Plug>(nohai-search-backward)', 'no') && !maparg('g?', 'no')
+if !hasmapto('<Plug>(nohai-search-backward)', 'nov') && !maparg('g?', 'nox')
 	nmap g? <Plug>(nohai-search-backward)
+	xmap g? <Plug>(nohai-search-backward)
 	omap g? <Plug>(nohai-search-backward)
 endif
 
-if !hasmapto('<Plug>(nohai-search)', 'no') && !maparg('g/', 'no')
+if !hasmapto('<Plug>(nohai-search)', 'nov') && !maparg('g/', 'nox')
 	nmap g/ <Plug>(nohai-search)
+	xmap g/ <Plug>(nohai-search)
 	omap g/ <Plug>(nohai-search)
 endif
