@@ -1,0 +1,13 @@
+CHANGELOG
+=========
+
+v0.0.2 (2019-12-17):
+	Additions:
+
+	* Add `g/` & `g?` operator-pending mappings.
+
+v0.0.1 (2019-12-14):
+	Initial release.
+
+
+ vim:tw=80:fo+=n:com=:flp=^\\s*\\*\ :
