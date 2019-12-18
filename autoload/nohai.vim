@@ -14,8 +14,12 @@
 " along with Nohai. If not, see <https://www.gnu.org/licenses/>.
 
 " Remaps <CR> in command mode to run `nohlsearch` after accepting the command.
-function! s:AddMapping()
-	cnoremap <expr> <silent> <CR> <SID>CRAndNohlsearch()
+function! s:AddMapping(mode)
+	if a:mode ==# 'n'
+		cnoremap <expr> <silent> <CR> <SID>CRAndNohlsearch()
+	elseif a:mode ==# 'v' || a:mode ==# 'o'
+		cnoremap <expr> <silent> <CR> <SID>CRAndNohlsearchV()
+	endif
 endfunction
 
 " Removes the Nohai <CR> cmap.
@@ -34,12 +38,20 @@ function! s:CRAndNohlsearch()
 	return "\<CR>:nohlsearch\<CR>"
 endfunction
 
+function! s:CRAndNohlsearchV()
+	let expr = "\<CR>"
+	let expr .= ":\<C-u>nohlsearch\<CR>"
+	let expr .= 'gv'
+
+	return expr
+endfunction
+
 " Turn on Nohai autocmds.
-function! s:AutocmdOn()
+function! s:AutocmdOn(mode)
 	augroup nohai
 		autocmd!
 
-		autocmd CmdlineEnter [/\?] call s:AddMapping()
+		execute 'autocmd CmdlineEnter [/\?] call s:AddMapping("' . a:mode . '")'
 		autocmd CmdlineLeave [/\?] call s:Deactivate()
 	augroup END
 endfunction
@@ -51,8 +63,8 @@ endfunction
 
 " Expr mapping function that turns on Nohai and starts the search command
 " specified by `command`, either '/' or '?'.
-function! nohai#Search(command)
-	call s:AutocmdOn()
+function! nohai#Search(command, mode)
+	call s:AutocmdOn(a:mode)
 
 	return a:command
 endfunction

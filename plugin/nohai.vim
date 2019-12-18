@@ -20,14 +20,14 @@ if exists('g:loaded_nohai')
 endif
 let g:loaded_nohai = 1
 
-nnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
-nnoremap <expr> <Plug>(nohai-search) nohai#Search('/')
+nnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?', 'n')
+nnoremap <expr> <Plug>(nohai-search) nohai#Search('/', 'n')
 
-xnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
-xnoremap <expr> <Plug>(nohai-search) nohai#Search('/')
+xnoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?', 'v')
+xnoremap <expr> <Plug>(nohai-search) nohai#Search('/', 'v')
 
-onoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?')
-onoremap <expr> <Plug>(nohai-search) nohai#Search('/')
+onoremap <expr> <Plug>(nohai-search-backward) nohai#Search('?', 'o')
+onoremap <expr> <Plug>(nohai-search) nohai#Search('/', 'o')
 
 if exists('g:nohai_no_maps') && g:nohai_no_maps
 	finish
